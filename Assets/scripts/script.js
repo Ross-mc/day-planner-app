@@ -12,7 +12,7 @@ $(function(){
     //create all the time blocks
 
     var currentTime = moment().format("hh:mm:ss");
-    var currentHour = parseInt(moment().format("hh"));
+    var currentHour = parseInt(moment().format("HH"));
     
     //create time block
     var timeBlock = $("<div>");
