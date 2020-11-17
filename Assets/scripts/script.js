@@ -11,7 +11,6 @@ $(function(){
 
     //create all the time blocks
 
-    var currentTime = moment().format("hh:mm:ss");
     var currentHour = parseInt(moment().format("HH"));
     
     //create time block
@@ -37,6 +36,7 @@ $(function(){
         var description = $("<div>");
         description.addClass("description");
 
+        //style using pre-set class names depending on time
         if (i < currentHour){
             description.addClass("past");
         } else if (i === currentHour){
@@ -53,6 +53,7 @@ $(function(){
 
         var saveBtn = $("<button>");
         saveBtn.addClass("saveBtn");
+        saveBtn.attr("data-index", i);
 
         var icon = $("<i>");
         icon.addClass("fas fa-save");
@@ -68,25 +69,22 @@ $(function(){
         timeBlock.append(row);
 
     }
-
-
-
-
-    
-
-
-
-
     //
-
 
     //append timeblock
     $(".container").append(timeBlock);
 
+    //click handler and logic for save button
+
+    $(".saveBtn").click(function(){
+        var index = $(this).attr("data-index");
+        console.log(index);
+    })
 
 
 
-    //style them (using class names) according to the current time
+
+
 
 
 
