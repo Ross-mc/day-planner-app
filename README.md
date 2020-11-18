@@ -7,11 +7,9 @@ The page automatically gets the day/time and the user can add reminders for task
 
 ## Live page
 
-<!-- The coding quiz page is available [here](https://ross-mc.github.io/javascript-coding-quiz/) -->
-
-(tbc)
+The coding quiz page is available [here](https://ross-mc.github.io/day-planner-app/)
 
 ## Screenshots
 
-<img src="" height="225px" width="400px">
-<img src="" height="225px" width="400px">
+<img src="Assets/images/init.jpg" height="225px" width="400px">
+<img src="Assets/images/saved-items.jpg" height="225px" width="400px">
