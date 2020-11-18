@@ -8,6 +8,59 @@ $(function(){
 
     $("#currentDay").text(currentDay + ' ' + currentDate);
 
+    //local storage variable
+
+    let textArr = [
+        {
+            hour: 8,
+            task: ""
+        },
+        {
+            hour: 9,
+            task: ""
+        },
+        {
+            hour: 10,
+            task: ""
+        },
+        {
+            hour: 11,
+            task: ""
+        },
+        {
+            hour: 12,
+            task: ""
+        },
+        {
+            hour: 13,
+            task: ""
+        },
+        {
+            hour: 14,
+            task: ""
+        },
+        {
+            hour: 15,
+            task: ""
+        },
+        {
+            hour: 16,
+            task: ""
+        },
+        {
+            hour: 17,
+            task: ""
+        },
+        {
+            hour: 18,
+            task: ""
+        }
+    ];
+
+    if (JSON.parse(localStorage.getItem("textArr") !== null)){
+        textArr = JSON.parse(localStorage.getItem("textArr"));
+    };
+
 
     //create all the time blocks
 
@@ -46,6 +99,8 @@ $(function(){
         }
 
         var textarea = $("<textarea>");
+        textarea.attr("id", i);
+        textarea.val(textArr[i-8].task);
 
         description.append(textarea);
 
@@ -53,7 +108,6 @@ $(function(){
 
         var saveBtn = $("<button>");
         saveBtn.addClass("saveBtn");
-        saveBtn.attr("data-index", i);
 
         var icon = $("<i>");
         icon.addClass("fas fa-save");
@@ -77,8 +131,22 @@ $(function(){
     //click handler and logic for save button
 
     $(".saveBtn").click(function(){
-        var index = $(this).attr("data-index");
-        console.log(index);
+        //finding the correct textarea using dom traversal
+        var siblings = $(this).siblings();
+        var description = $(siblings[1]);
+        var textarea = description.find(">:first-child");
+        var inputText = textarea.val().trim();
+
+
+        //using the id to dynamically update the array of textinputs
+        var textId = parseInt(textarea.attr("id"));
+        var textIndex = textArr.findIndex((element => element.hour === textId));
+        textArr[textIndex].task = inputText;
+
+        //save to local storage
+
+        localStorage.setItem("textArr", JSON.stringify(textArr))
+        
     })
 
 
