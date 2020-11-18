@@ -31,7 +31,7 @@ textarea{
 
 .description{
   white-space: pre-wrap;
-  width: 80%;
+  width: 90%;
 }
 
 .time-block{
@@ -43,6 +43,8 @@ textarea{
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .hour {
@@ -85,7 +87,7 @@ textarea{
   transition: all .3s ease-in-out;
 }
 
-@media(max-width: 768px){
+@media(max-width: 1000px){
   .display-3{
     font-size: 2rem;
   }
@@ -97,5 +99,14 @@ textarea{
   }
   .hour, .saveBtn{
     width: 15%;
+  }
+}
+
+@media(max-width: 500px){
+  .description{
+    width: 65%;
+  }
+  .hour, .saveBtn{
+    width: 17.5%;
   }
 }
